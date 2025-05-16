@@ -3,16 +3,19 @@ import './App.css'
 import HomePage from '../pages/HomePage'
 import CreatePage from '../pages/CreatePage'
 import Navbar from '../components/Navbar'
+import { Box, useColorModeValue } from '@chakra-ui/react'
 
 function App() {
 
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/create" element={<CreatePage />} />
-      </Routes>
+      <Box bg={useColorModeValue("gray.100", "gray.900")} minH="100vh">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/create" element={<CreatePage />} />
+        </Routes>
+      </Box>
     </>
   )
 }
