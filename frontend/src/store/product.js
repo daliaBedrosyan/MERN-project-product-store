@@ -16,6 +16,13 @@ export const useProductStore = create((set) => ({
             products: [...state.products, data.data],
         }));
         return { success: true, message: 'Product created successfully' }
-    }
+    },
+    fetchProducts: async () => {
+        const response = await fetch('/api/products');
+        const data = await response.json();
+        // console.log(data);
+        set({ products: data });
+    },
+
 }));
 

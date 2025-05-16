@@ -10,7 +10,7 @@ const CreatePage = () => {
         image: "",
     });
     const toast = useToast();
-    const { createProduct } = useProductStore();
+    const { setProduct, createProduct } = useProductStore();
 
     const handleAddProduct = async () => {
         const { success, message } = await createProduct(newProduct);
@@ -32,6 +32,7 @@ const CreatePage = () => {
                 isClosable: true,
             });
         }
+        setNewProduct({ name: "", price: 0, image: "" });
     }
 
     return (
